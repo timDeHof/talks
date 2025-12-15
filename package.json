@@ -1,17 +1,51 @@
 {
-  "name": "talks",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@9.12.3",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx scripts/picker.ts dev --open",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@9.12.3",
   "engines": {
     "node": ">=22.11.0"
   },
-  "type": "module"
+  "lint-staged": {
+    "**/*.{js,ts,tsx}": [
+      "eslint --fix"
+    ],
+    "**/*": "prettier --write --ignore-unknown"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "catalog:",
+    "@commitlint/types": "catalog:",
+    "@eslint/js": "catalog:",
+    "@slidev/cli": "catalog:",
+    "@slidev/client": "catalog:",
+    "@types/node": "catalog:",
+    "@types/prompts": "catalog:",
+    "commitlint": "catalog:",
+    "conventional-changelog-atom": "^5.0.0",
+    "eslint": "catalog:",
+    "eslint-config-prettier": "catalog:",
+    "eslint-plugin-prettier": "catalog:",
+    "execa": "catalog:",
+    "globals": "catalog:",
+    "husky": "catalog:",
+    "jiti": "catalog:",
+    "lint-staged": "catalog:",
+    "prettier": "catalog:",
+    "prompts": "catalog:",
+    "rimraf": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
+    "unocss": "catalog:",
+    "vite": "catalog:"
+  }
 }
