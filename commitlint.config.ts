@@ -6,7 +6,24 @@ const Configuration: UserConfig = {
   parserPreset: 'conventional-changelog-atom',
   formatter: '@commitlint/format',
   rules: {
-    'type-enum': [RuleConfigSeverity.Error, 'always', ['foo']],
+    'type-enum': [
+      RuleConfigSeverity.Warning,
+      'always',
+      [
+        'build',
+        'chore',
+        'ci',
+        'docs',
+        'feat',
+        'fix',
+        'perf',
+        'refactor',
+        'revert',
+        'style',
+        'test',
+      ],
+    ],
+    'header-max-length': [0, 'always', 120],
   },
   // ...
 };
