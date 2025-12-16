@@ -6,6 +6,9 @@ settings:
 
 catalogs:
   default:
+    '@commitlint/config-conventional':
+      specifier: ^20.2.0
+      version: 20.2.0
     '@commitlint/types':
       specifier: ^20.2.0
       version: 20.2.0
@@ -25,7 +28,7 @@ catalogs:
       specifier: ^2.4.9
       version: 2.4.9
     commitlint:
-      specifier: 20.2.0
+      specifier: ^20.2.0
       version: 20.2.0
     eslint:
       specifier: ^9.39.2
@@ -81,7 +84,7 @@ importers:
   .:
     devDependencies:
       '@commitlint/config-conventional':
-        specifier: ^20.2.0
+        specifier: 'catalog:'
         version: 20.2.0
       '@commitlint/types':
         specifier: 'catalog:'
@@ -131,6 +134,9 @@ importers:
       lint-staged:
         specifier: 'catalog:'
         version: 16.2.7
+      markdown-it-magic-link:
+        specifier: ^0.1.4
+        version: 0.1.4
       prettier:
         specifier: 'catalog:'
         version: 3.7.4
@@ -158,6 +164,9 @@ importers:
 
   2025-12-15/src:
     dependencies:
+      '@slidev/theme-default':
+        specifier: ^0.25.0
+        version: 0.25.0
       '@slidev/theme-seriph':
         specifier: ^0.25.0
         version: 0.25.0
@@ -888,6 +897,10 @@ packages:
 
   '@slidev/rough-notation@0.1.0':
     resolution: {integrity: sha512-a/CbVmjuoO3E4JbUr2HOTsXndbcrdLWOM+ajbSQIY3gmLFzhjeXHGksGcp1NZ08pJjLZyTCxfz1C7v/ltJqycA==}
+
+  '@slidev/theme-default@0.25.0':
+    resolution: {integrity: sha512-iWvthH1Ny+i6gTwRnEeeU+EiqsHC56UdEO45bqLSNmymRAOWkKUJ/M0o7iahLzHSXsiPu71B7C715WxqjXk2hw==}
+    engines: {node: '>=14.0.0', slidev: '>=v0.47.0'}
 
   '@slidev/theme-seriph@0.25.0':
     resolution: {integrity: sha512-PnFQbn4I70+/cVie5iAr0Im6sYvnwjkO7Yj5KonTyJZFFJFytckLTrD3ijft/J4cRnz7OmSzTyQKNX1FN/x0YQ==}
@@ -2532,6 +2545,9 @@ packages:
 
   markdown-it-footnote@4.0.0:
     resolution: {integrity: sha512-WYJ7urf+khJYl3DqofQpYfEYkZKbmXmwxQV8c8mO/hGIhgZ1wOe7R4HLFNwqx7TjILbnC98fuyeSsin19JdFcQ==}
+
+  markdown-it-magic-link@0.1.4:
+    resolution: {integrity: sha512-Y0CgJVtqdGGeWJ+8bN+eBEr2q2ugmf5AMJWSbxBpmGcqARbKBB62biB7LwkoxtbddlmVkACYBFyjlMP/SzYlzg==}
 
   markdown-it-mdc@0.2.6:
     resolution: {integrity: sha512-HxbEZoEmftdm/krWzwI3JcCWoeXTkAufme1gQt8MTN6nY7y2w/I0LI8U9TEERNPjBNtMOLaNaQsM1H+5K15UJQ==}
@@ -4569,6 +4585,12 @@ snapshots:
     dependencies:
       roughjs: 4.6.6
 
+  '@slidev/theme-default@0.25.0':
+    dependencies:
+      '@slidev/types': 0.47.5
+      codemirror-theme-vars: 0.1.2
+      prism-theme-vars: 0.2.5
+
   '@slidev/theme-seriph@0.25.0':
     dependencies:
       '@slidev/types': 0.47.5
@@ -6417,6 +6439,10 @@ snapshots:
       markdown-it: 14.1.0
 
   markdown-it-footnote@4.0.0: {}
+
+  markdown-it-magic-link@0.1.4:
+    dependencies:
+      markdown-it: 14.1.0
 
   markdown-it-mdc@0.2.6(@types/markdown-it@14.1.2)(markdown-it@14.1.0):
     dependencies:

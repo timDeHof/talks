@@ -13,6 +13,7 @@ catalog:
   globals: ^16.5.0
   commitlint: ^20.2.0
   conventional-changelog-atom: ^5.0.0
+  markdown-it-magic-link: ^0.1.4
   husky: ^9.1.7
   jiti: ^2.6.1
   lint-staged: ^16.2.7

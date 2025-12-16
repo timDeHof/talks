@@ -24,6 +24,8 @@ const Configuration: UserConfig = {
       ],
     ],
     'header-max-length': [0, 'always', 120],
+    'body-max-length': [0, 'always', 200],
+    'body-max-line-length': [0, 'always', 200],
   },
   // ...
 };

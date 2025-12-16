@@ -1,659 +1,518 @@
 ---
-# try also 'default' to start simple
 theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
-title: Welcome to Slidev
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# apply UnoCSS classes to the current slide
+background: /backgrounds/hero-split.png
 class: text-center
-# https://sli.dev/features/drawing
+highlighter: shiki
+lineNumbers: false
+info: |
+  ## Engineering Software Integrity
+  A presentation by Timothy DeHof on applying engineering principles to software development.
 drawings:
   persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
 transition: slide-left
-# enable MDC Syntax: https://sli.dev/features/mdc
+title: Engineering Software Integrity
 mdc: true
-# duration of the presentation
-duration: 35min
 ---
 
-# Welcome to Slidev
-
-Presentation slides for developers
-
-<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space for next page <carbon:arrow-right />
+<div class="bg-black py-4 opacity-85 w-full">
+  <h1 class="font-medium">Is your software just <span class="font-bold font-italic">built</span>, <br/>or is it <span class="font-bold font-italic">engineered</span> ?</h1>
+  <p>In a world of fast features, the most valuable asset is engineered robustness.</p>
 </div>
-
-<div class="abs-br m-6 text-xl">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
-    <carbon:logo-github />
-  </a>
-</div>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
-
----
-
-## transition: fade-out
-
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-  <br>
-  <br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
-<!--
-Here is another comment.
--->
-
----
-
-transition: slide-up
-level: 2
-
----
-
-# Navigation
-
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
-
-## Keyboard Shortcuts
-
-|                                                    |                             |
-| -------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                | next animation or slide     |
-| <kbd>left</kbd> / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                      | previous slide              |
-| <kbd>down</kbd>                                    | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
 
 ---
 
 layout: two-cols
-layoutClass: gap-16
+background: /backgrounds/blueprint-texture.png
 
 ---
 
-# Table of contents
+<template v-slot:default>
 
-You can use the `Toc` component to generate a table of contents for your slides:
+# From Physical Systems to Digital Architecture.
 
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
+## Modern Architecture
 
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
+<ArchitectureDiagram class="mt-8" />
 
-::right::
+</template>
 
-<Toc text-sm minDepth="1" maxDepth="2" />
+<template v-slot:right>
 
----
+## Introduction
 
-layout: image-right
-image: https://cover.sli.dev
+**Timothy DeHof**: A Full-Stack Engineer with a B.S. in Mechanical Engineering. This isn't a career change; it's the fusion of two disciplines dedicated to one goal: building systems that are reliable, scalable, and maintainable for the long term.
 
----
+### Key Focus
 
-# Code
+Building systems with engineering precision applied to software development.
 
-Use code snippets and get the highlighting directly, and even types hover!
-
-```ts [filename-example.ts] {all|4|6|6-7|9|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-import { computed, ref } from 'vue';
-
-const count = ref(0);
-const doubled = computed(() => count.value * 2);
-
-doubled.value = 2;
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="342" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-
-[Learn more](https://sli.dev/features/line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
+</template>
 
 ---
 
-## level: 2
-
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery',
-  ],
-});
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery',
-        ],
-      },
-    };
-  },
-};
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery',
-      ],
-    },
-  }),
-};
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery',
-  ],
-};
-</script>
-```
-````
+layout: default
+background: /backgrounds/grid-technical.png
 
 ---
 
-# Components
+# An Engineer's Mindset for Software Integrity
 
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
+<div class="text-center mb-8 text-xl">
+If software is a machine, an engineer understands its core principles:
 </div>
 
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
+<div class="grid grid-cols-2 gap-12 px-8">
 
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
+<div class="space-y-4">
 
----
+### Physical Engineering
 
-## class: px-20
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
-
----
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you click the slide:
-
-```html
-<div v-click>This shows up when you click the slide.</div>
-```
-
-</div>
-
-<br>
-
-<v-click>
-
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div mt-20 v-click>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
-</div>
-
----
-
-# Motions
-
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
-```
-
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
+<div class="flex items-start gap-3 p-3 bg-blue-50 rounded">
+  <span class="text-2xl">⚙️</span>
+  <div>
+    <strong>Bill of Materials</strong> → Dependency Management & Supply Chain Security
   </div>
 </div>
 
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn more](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-
-# $\LaTeX$
-
-$\LaTeX$ is supported out-of-box. Powered by [$\KaTeX$](https://katex.org/).
-
-<div h-3 />
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-
-$$
-{1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
-
----
-
-foo: bar
-dragPos:
-square: 691,32,167,\_,-16
-
----
-
-# Draggable Elements
-
-Double-click on the draggable elements to edit their positions.
-
-<br>
-
-###### Directive Usage
-
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-```
-
-<br>
-
-###### Component Usage
-
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
-
-<v-drag pos="663,206,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
+<div class="flex items-start gap-3 p-3 bg-blue-50 rounded">
+  <span class="text-2xl">📏</span>
+  <div>
+    <strong>Tolerances</strong> → Error Handling & Graceful Degradation
   </div>
-</v-drag>
+</div>
 
-<img v-drag="'square'" src="https://sli.dev/logo.png">
+<div class="flex items-start gap-3 p-3 bg-blue-50 rounded">
+  <span class="text-2xl">🔍</span>
+  <div>
+    <strong>Failure Analysis</strong> → Rigorous Debugging & Systemic QA
+  </div>
+</div>
 
-###### Draggable Arrow
+<div class="flex items-start gap-3 p-3 bg-blue-50 rounded">
+  <span class="text-2xl">🔧</span>
+  <div>
+    <strong>Maintenance Cycles</strong> → Long-Term Code Maintainability
+  </div>
+</div>
 
-```md
-<v-drag-arrow two-way />
-```
+</div>
 
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
+<div class="flex items-center justify-center">
+  <ArchitectureDiagram />
+</div>
+
+</div>
 
 ---
 
-src: ./pages/imported-slides.md
-hide: false
+layout: two-cols
+background: /backgrounds/grid-technical.png
 
 ---
 
----
+<template v-slot:default>
 
-# Monaco Editor
+# Forged in High-Stakes Environments.
 
-Slidev provides built-in Monaco Editor support.
+<div class="space-y-4">
 
-Add `{monaco}` to the code block to turn it into an editor:
+### Professional Background
 
-```ts {monaco}
-import { ref } from 'vue';
-import { emptyArray } from './external';
+**7+ years** as a Mechanical Design Engineer at Polyhistor International, serving highly regulated industries.
 
-const arr = ref(emptyArray(10));
-```
+<div class="grid grid-cols-2 gap-4 mt-6">
+  <div class="text-center p-4 bg-white rounded shadow">
+    <div class="text-4xl mb-2">🏥</div>
+    <div class="font-bold">Medical</div>
+  </div>
+  <div class="text-center p-4 bg-white rounded shadow">
+    <div class="text-4xl mb-2">🛡️</div>
+    <div class="font-bold">Defense</div>
+  </div>
+  <div class="text-center p-4 bg-white rounded shadow">
+    <div class="text-4xl mb-2">🖨️</div>
+    <div class="font-bold">3D Printing</div>
+  </div>
+  <div class="text-center p-4 bg-white rounded shadow">
+    <div class="text-4xl mb-2">✅</div>
+    <div class="font-bold">QA</div>
+  </div>
+</div>
 
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
+</div>
 
-```ts {monaco-run}
-import { version } from 'vue';
-import { emptyArray, sayHello } from './external';
+</template>
 
-sayHello();
-console.log(`vue ${version}`);
-console.log(
-  emptyArray<number>(10).reduce(
-    (fib) => [...fib, fib.at(-1)! + fib.at(-2)!],
-    [1, 1],
-  ),
-);
-```
+<template v-slot:right>
+
+### Key Achievements
+
+<div class="space-y-3 text-lg">
+
+- Led over **30 3D printing projects** for **Medical and Defense** clients.
+
+- Expertise in rigorous QA, defect detection, and uncompromising adherence to specifications.
+
+- Automated internal quoting tools with Python & SQL, reducing time by **50%**.
+
+</div>
+
+</template>
 
 ---
 
 layout: center
 class: text-center
+background: /backgrounds/grid-technical.png
 
 ---
 
-# Learn More
+# The Engineering Discipline Applied to Code
 
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
+<div class="grid grid-cols-3 gap-8 mt-12 px-12">
 
-<PoweredBySlidev mt-10 />
+<StatCard
+  percentage="25%"
+  icon="i-mdi-cube-outline"
+  description="Accelerated front-end development cycle through modular architecture."
+  color="#2563eb"
+/>
+
+<StatCard
+  percentage="99.9%"
+  icon="i-mdi-shield-check"
+  description="Maintained service reliability for a scalable SaaS platform."
+  color="#16a34a"
+/>
+
+<StatCard
+  percentage="30%"
+  icon="i-mdi-rocket-launch"
+  description="Faster production deployments via CI/CD pipeline optimization."
+  color="#f59e0b"
+/>
+
+</div>
+
+---
+
+layout: two-cols
+background: /backgrounds/grid-technical.png
+
+---
+
+<template v-slot:default>
+
+# Architecting an Enterprise-Ready SaaS Frontend
+
+## Architecture Pattern
+
+<div class="mt-6 space-y-4">
+
+```mermaid
+graph TD
+    A[Modular Component Library<br/>TypeScript] --> B[Tenant App A]
+    A --> C[Tenant App B]
+    A --> D[Tenant App C<br/>✓ WCAG 2.1]
+
+    style A fill:#dbeafe,stroke:#2563eb
+    style B fill:#f0f9ff,stroke:#0284c7
+    style C fill:#f0f9ff,stroke:#0284c7
+    style D fill:#dcfce7,stroke:#16a34a
+```
+
+</div>
+
+</template>
+
+<template v-slot:right>
+
+## Key Achievements
+
+<div class="space-y-4">
+
+**Modular Component Library**: Architected and deployed in TypeScript, establishing a single source of truth.
+
+**Scalable Multi-Tenant Design**: Ensured code was reusable, maintainable, and could serve multiple customers securely.
+
+**Accessibility by Design**: Ensured full **WCAG 2.1 accessibility compliance** in customer dashboards, a non-negotiable for enterprise readiness.
+
+Mentored team on Test-Driven Development (TDD), improving code quality metrics by **20%**.
+
+</div>
+
+</template>
+
+---
+
+layout: center
+class: text-center
+background: /backgrounds/grid-technical.png
+
+---
+
+# Validated by the Development Community
+
+<div class="mt-8">
+
+## Open Source: Shadcn Timeline Component Library
+
+<div class="grid grid-cols-2 gap-12 mt-8 max-w-3xl mx-auto">
+
+<div class="p-8 bg-white rounded-lg shadow-lg">
+  <div class="text-6xl font-bold text-yellow-500 mb-2">270+</div>
+  <div class="text-2xl">⭐ GitHub Stars</div>
+</div>
+
+<div class="p-8 bg-white rounded-lg shadow-lg">
+  <div class="text-6xl font-bold text-blue-500 mb-2">13</div>
+  <div class="text-2xl">🔱 Forks</div>
+</div>
+
+</div>
+
+<div class="mt-12 space-y-4 text-lg max-w-2xl mx-auto">
+
+<div class="p-4 bg-blue-50 rounded">
+✅ **Type-Safe & Composable**: Engineered with TypeScript for reliability.
+</div>
+
+<div class="p-4 bg-green-50 rounded">
+✅ **90% Test Coverage**: Built with Jest and Storybook, ensuring component robustness.
+</div>
+
+</div>
+
+</div>
+
+---
+
+layout: two-cols
+background: /backgrounds/blueprint-texture.png
+
+---
+
+<template v-slot:default>
+
+# Bridging Mechanical Visualization and Digital Interaction
+
+## 3D Product Configurator
+
+<div class="space-y-4 text-lg">
+
+**Real-time Rendering**: Built with Next.js and React Three Fiber.
+
+**Performance Optimized**: Achieved a stable **60 FPS** average frame rate and reduced initial load times through efficient asset management.
+
+**Modular Architecture**: Designed to bridge physical design principles with modern component-based UI.
+
+</div>
+
+<div class="mt-6 p-4 bg-orange-100 rounded-lg border-2 border-orange-400">
+  <div class="text-3xl font-bold text-orange-600">⚡ 60 FPS</div>
+  <div class="text-sm text-orange-800">Consistent Performance</div>
+</div>
+
+</template>
+
+<template v-slot:right>
+
+<div class="flex items-center justify-center h-full">
+  <div class="text-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg">
+    <div class="text-6xl mb-4">🎮</div>
+    <div class="text-2xl font-bold text-blue-900">Interactive 3D</div>
+    <div class="text-lg text-blue-700">Product Configurator</div>
+  </div>
+</div>
+
+</template>
+
+---
+
+layout: default
+background: /backgrounds/grid-technical.png
+
+---
+
+# The Engineer's Toolkit
+
+<div class="grid grid-cols-2 gap-8 px-8">
+
+<div class="space-y-6">
+
+<TechStack
+  title="Frontend & Architecture"
+  :items="[
+    { name: 'React', icon: '⚛️' },
+    { name: 'TypeScript', icon: '📘' },
+    { name: 'Next.js', icon: '⚡' },
+    { name: 'Tailwind CSS', icon: '🎨' },
+    { name: 'Component-Based Architecture', icon: '🧩' }
+  ]"
+  color="#2563eb"
+/>
+
+<TechStack
+  title="Cloud & DevOps"
+  :items="[
+    { name: 'AWS Certified Cloud Practitioner', icon: '☁️' },
+    { name: 'GitHub Actions (CI/CD)', icon: '🔄' },
+    { name: 'Docker', icon: '🐳' },
+    { name: 'Serverless', icon: '⚡' }
+  ]"
+  color="#f59e0b"
+/>
+
+</div>
+
+<div class="space-y-6">
+
+<TechStack
+  title="Backend & Databases"
+  :items="[
+    { name: 'Node.js', icon: '🟢' },
+    { name: 'Express.js', icon: '🚂' },
+    { name: 'PostgreSQL (PERN Stack)', icon: '🐘' },
+    { name: 'REST/GraphQL APIs', icon: '🔌' },
+    { name: 'Prisma', icon: '🔺' }
+  ]"
+  color="#16a34a"
+/>
+
+<TechStack
+  title="Testing & QA"
+  :items="[
+    { name: 'Jest', icon: '🃏' },
+    { name: 'Cypress', icon: '🌲' },
+    { name: 'Playwright', icon: '🎭' },
+    { name: 'Test-Driven Development (TDD)', icon: '✅' },
+    { name: 'WCAG 2.1 Compliance', icon: '♿' }
+  ]"
+  color="#dc2626"
+/>
+
+</div>
+
+</div>
+
+---
+
+layout: center
+class: text-center
+background: /backgrounds/grid-technical.png
+
+---
+
+# Applications in High-Stakes Environments
+
+<div class="grid grid-cols-4 gap-6 mt-12 px-8">
+
+<IndustryCard
+  title="SaaS"
+  icon="i-mdi-cloud-cog"
+  description="Scalable multi-tenant architecture and 99.9% reliability."
+  color="#2563eb"
+/>
+
+<IndustryCard
+  title="HealthTech & Defense"
+  icon="i-mdi-shield-plus"
+  description="A deep-rooted understanding of compliance, security, and rigorous QA from direct industry experience."
+  color="#dc2626"
+/>
+
+<IndustryCard
+  title="FinTech"
+  icon="i-mdi-bank"
+  description="Focus on data integrity with PostgreSQL and a mindset geared towards transactional robustness."
+  color="#f59e0b"
+/>
+
+<IndustryCard
+  title="Industrial IoT"
+  icon="i-mdi-cog-sync"
+  description="Unique ability to bridge physical systems and digital infrastructure."
+  color="#16a34a"
+/>
+
+</div>
+
+---
+
+layout: default
+background: /backgrounds/grid-technical.png
+
+---
+
+# Moving from Reactive Fixes to Proactive Design
+
+<ComparisonSlide
+  leftTitle="What Is: The Cost of Unengineered Code"
+  rightTitle="What Could Be: The Value of Engineered Systems"
+  :leftItems="[
+    'Brittle features that break under load',
+    'Escalating technical debt',
+    'Slow, risky deployments'
+  ]"
+  :rightItems="[
+    'Robust, scalable architecture',
+    'Long-term maintainability',
+    'Accelerated, reliable development cycles'
+  ]"
+  leftColor="#dc2626"
+  rightColor="#16a34a"
+/>
+
+---
+
+layout: cover
+background: /backgrounds/bridge-sunset.png
+class: text-center
+
+---
+
+<div class="text-white drop-shadow-lg">
+
+# Let's build software that's not just functional for today, but engineered for the decade ahead.
+
+</div>
+
+---
+
+layout: center
+class: text-center
+background: /backgrounds/grid-technical.png
+
+---
+
+# Architect the Solution.
+
+<div class="mt-12 max-w-2xl mx-auto">
+
+<div class="mb-8">
+  <div class="text-4xl font-bold text-blue-900">Timothy DeHof</div>
+  <div class="text-2xl text-blue-700 mt-2">Full-Stack Engineer</div>
+</div>
+
+<div class="grid grid-cols-2 gap-4 text-lg mb-8">
+  <div class="p-3 bg-white rounded shadow">
+    📧 ttdehof@gmail.com
+  </div>
+  <div class="p-3 bg-white rounded shadow">
+    📱 (904) 704-1790
+  </div>
+  <div class="p-3 bg-white rounded shadow col-span-2">
+    🔗 <a href="https://linkedin.com/in/tim-dehof" class="text-blue-600 hover:underline">linkedin.com/in/tim-dehof</a>
+  </div>
+  <div class="p-3 bg-white rounded shadow col-span-2">
+    💻 <a href="https://github.com/timDeHof" class="text-blue-600 hover:underline">github.com/timDeHof</a>
+  </div>
+</div>
+
+<div class="mt-8">
+  <a href="#" class="inline-block px-12 py-4 bg-blue-600 text-white rounded-lg text-xl font-semibold hover:bg-blue-700 transition-colors shadow-lg">
+    Schedule a technical deep-dive
+  </a>
+</div>
+
+</div>
