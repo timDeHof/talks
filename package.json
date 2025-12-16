@@ -27,6 +27,8 @@
     "@eslint/js": "catalog:",
     "@slidev/cli": "catalog:",
     "@slidev/client": "catalog:",
+    "@slidev/theme-default": "catalog:",
+    "@slidev/theme-seriph": "catalog:",
     "@types/node": "catalog:",
     "@types/prompts": "catalog:",
     "commitlint": "catalog:",
